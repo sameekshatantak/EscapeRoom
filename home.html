@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escape Room Game - Room 1</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="game-style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Welcome to the Game!</h1>
+        </header>
+
+        <section class="game-task">
+            <h2>Your First Task</h2>
+            <p>Solve this puzzle to get a clue for the first key. Once you find the key, the door will open, and you can move to the next room.</p>
+            <div class="puzzle">
+                <h3>Puzzle 1: Riddle</h3>
+                <p>I speak without a mouth and hear without ears. I have nobody, but I come alive with wind. What am I?</p>
+                <input type="text" placeholder="Enter your answer..." id="answer">
+                <button onclick="checkAnswer()">Submit Answer</button>
+            </div>
+            <div id="result"></div>
+        </section>
+
+        <!-- Lifeline Display -->
+        <div class="lifelines">
+            <h3>Lifelines Left: <span id="lifeline-count">5</span></h3>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2024 Escape Room Challenge. Solve wisely and escape if you dare!</p>
+    </footer>
+
+    <script>
+        let lifelines = 5;
+
+        function checkAnswer() {
+            const answer = document.getElementById("answer").value.toLowerCase();
+            const resultDiv = document.getElementById("result");
+
+            if (answer === "echo") {
+                resultDiv.innerHTML = "<p style='color: green;'>Correct! You've found the clue to the first key. Proceeding to the next room...</p>";
+                // Redirect to room1.html after a short delay
+                setTimeout(() => {
+                    window.location.href = "room1.html"; // Redirect to the game page
+                }, 2000); // Redirect after 2 seconds
+            } else {
+                lifelines--;
+                document.getElementById("lifeline-count").innerText = lifelines;
+                resultDiv.innerHTML = "<p style='color: red;'>Wrong answer! You've lost a lifeline. Try again.</p>";
+
+                if (lifelines === 0) {
+                    resultDiv.innerHTML += "<p style='color: red;'>Game Over! You've used all your lifelines.</p>";
+                    // Disable the input and button after lifelines are over
+                    document.getElementById("answer").disabled = true;
+                    document.querySelector("button").disabled = true;
+                }
+            }
+        }
+    </script>
+</body>
+</html>

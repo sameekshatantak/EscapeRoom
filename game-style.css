@@ -1,0 +1,121 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Cinzel', serif;
+    background: url('escape_room_bg.jpg') no-repeat center center/cover;
+    color: #ffffff;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    background: rgba(0, 0, 0, 0.7);
+    padding: 40px;
+    border-radius: 15px;
+    text-align: center;
+    width: 90%;
+    max-width: 900px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.7);
+}
+
+/* Header Styles */
+header h1 {
+    font-size: 3.2em;
+    color: #f5a623;
+    letter-spacing: 2px;
+    text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.7);
+    margin-bottom: 20px;
+}
+
+/* Game Task Section */
+.game-task h2 {
+    font-size: 2.5em;
+    margin-bottom: 15px;
+    color: #f5a623;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
+}
+
+.game-task p {
+    font-size: 1.4em;
+    margin-bottom: 30px;
+    color: #eeeeee;
+}
+
+.puzzle {
+    background-color: #292929;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.6);
+    margin-bottom: 20px;
+}
+
+.puzzle h3 {
+    font-size: 2em;
+    margin-bottom: 10px;
+    color: #ff6347;
+}
+
+.puzzle p {
+    font-size: 1.3em;
+    margin-bottom: 20px;
+}
+
+.puzzle input {
+    padding: 10px;
+    width: 60%;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2em;
+    margin-bottom: 15px;
+}
+
+.puzzle button {
+    padding: 10px 30px;
+    font-size: 1.3em;
+    background-color: #f5a623;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease;
+}
+
+.puzzle button:hover {
+    background-color: #ff4500;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.7);
+}
+
+/* Lifeline Display */
+.lifelines {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 1.5em;
+    color: #f5a623;
+    background-color: #292929;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.lifelines h3 {
+    margin: 0;
+}
+
+/* Footer */
+footer {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    text-align: center;
+    font-size: 1.2em;
+    color: #f5a623;
+}

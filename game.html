@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escape Room Game</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>Escape the Mystery</h1>
+            <p>Can you crack the puzzles, find the keys, and make your way out?</p>
+        </header>
+
+        <div class="game-start">
+            <button class="start-button" onclick="startGame()">Enter the Room</button>
+        </div>
+
+        <div class="game-info">
+            <h2>Instructions</h2>
+            <ul>
+                <li>Solve puzzles to unlock clues and find keys to open the doors.</li>
+                <li>You have <strong>5 lifelines</strong>. Each wrong attempt will cost you one.</li>
+                <li>Only the bravest minds will make it out. Will you be one?</li>
+            </ul>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2024 Escape Room Challenge. Good luck on your adventure!</p>
+    </footer>
+
+    <script>
+        function startGame() {
+            window.location.href = "home.html"; // Redirect to the game page
+        }
+    </script>
+</body>
+</html>

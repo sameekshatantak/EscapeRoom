@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escape Room - Room 1</title>
+    <style>
+        body {
+            background: url('escape_room_bg.jpg') no-repeat center center/cover cross-fade();
+            font-family: 'Algerian', serif;
+            color: #fff;
+            background-color: #1b1b1b;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            text-align: center;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            color: #f9d342;
+            text-shadow: 2px 2px 5px #000;
+        }
+
+        #clue {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            color: #ff3e41;
+            animation: pulse 1s infinite;
+        }
+
+        #lifelines {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            color: #ff5733;
+        }
+
+        .room {
+            position: relative;
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        .room-img {
+            width: 100%;
+            border: 5px solid #f9d342;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .options {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .option {
+            margin: 20px;
+            cursor: pointer;
+            text-align: center;
+            color: #fff;
+        }
+
+        .option img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .option img:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 15px #f9d342;
+        }
+
+        .option p {
+            margin-top: 10px;
+            font-size: 1.2em;
+        }
+
+        /* Lifeline visual */
+        #lifeline-count {
+            font-weight: bold;
+            font-size: 2em;
+        }
+
+        /* Success message */
+        .success {
+            color: #28a745;
+            text-shadow: 0 0 10px rgba(40, 167, 69, 0.7);
+        }
+
+        /* Game over styling */
+        .game-over {
+            color: #dc3545;
+            text-shadow: 0 0 10px rgba(220, 53, 69, 0.7);
+        }
+
+        /* Animations */
+        @keyframes pulse {
+            0% {
+                color: #ff3e41;
+            }
+            50% {
+                color: #ff7f7f;
+            }
+            100% {
+                color: #ff3e41;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to Room 1</h1>
+        <p id="clue">Clue: I sit silently, guarding wisdom, but only when the light is low will you think of me...</p>
+        <div id="lifelines">Lifelines: <span id="lifeline-count">5</span></div>
+        <div class="room">
+            <img src="room1.jpg" alt="Room 1" id="roomImage" class="room-img">
+        </div>
+
+        <!-- Options -->
+        <div class="options">
+            <div class="option" onclick="checkForKey('book')">
+                <img src="images/books.png" alt="Book">
+                <p>Book</p>
+            </div>
+            <div class="option" onclick="checkForKey('clock')">
+                <img src="images/clock.png" alt="Clock">
+                <p>Clock</p>
+            </div>
+            <div class="option" onclick="checkForKey('lamp')">
+                <img src="images/lamp.png"" alt="Lamp">
+                <p>Lamp</p>
+            </div>
+            <div class="option" onclick="checkForKey('phone')">
+                <img src="images/phone.png" alt="Phone">
+                <p>Phone</p>
+            </div>
+            <div class="option" onclick="checkForKey('vase')">
+                <img src="images/vase.png" alt="Vase">
+                <p>Vase</p>
+            </div>
+            <div class="option" onclick="checkForKey('radio')">
+                <img src="images/radio.png" alt="Radio">
+                <p>Radio</p>
+            </div>
+            <div class="option" onclick="checkForKey('painting')">
+                <img src="images/painting.png" alt="Painting">
+                <p>Painting</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let lifelines = parseInt(localStorage.getItem("lifelines")) || 5;
+
+        document.getElementById('lifeline-count').innerText = lifelines;
+
+        function checkForKey(item) {
+            if (item === 'lamp') {
+                // Correct item clicked
+                document.getElementById('clue').innerText = "Congratulations! You've found the key under the lamp. Proceed to Room 2!";
+                document.getElementById('clue').classList.add('success');
+                document.getElementById('roomImage').style.filter = 'grayscale(100%)';
+                localStorage.setItem("lifelines", lifelines);
+                setTimeout(() => {
+                    alert("Moving to the next room...");
+                    // Logic to navigate to Room 2
+                }, 2000);
+            } else {
+                // Incorrect item clicked
+                lifelines--;
+                if (lifelines > 0) {
+                    let newClue;
+                    if (lifelines === 4) {
+                        newClue = "Wrong choice! Hint: I shine when the sun goes down, yet I stand in every home.";
+                    } else if (lifelines === 3) {
+                        newClue = "Hint: I provide light, but I am not the source of power.";
+                    } else if (lifelines === 2) {
+                        newClue = "Hint: I illuminate, but I don’t hang from the ceiling.";
+                    } else if (lifelines === 1) {
+                        newClue = "Final hint: It's a lamp! Click on it quickly.";
+                    }
+                    document.getElementById('clue').innerText = newClue;
+                    document.getElementById('lifeline-count').innerText = lifelines;
+                } else {
+                    document.getElementById('clue').innerText = "You've lost all your lifelines. Game Over.";
+                    document.getElementById('clue').classList.add('game-over');
+                    document.getElementById('lifeline-count').innerText = 0;
+                    document.querySelectorAll('.option').forEach(option => option.style.pointerEvents = 'none');
+                    setTimeout(() => {
+                        alert("Restarting the game...");
+                        localStorage.clear();  // Clear lifelines if game over
+                        location.reload();
+                    }, 3000);
+                }
+            }
+        }
+    </script>
+</body>
+</html>

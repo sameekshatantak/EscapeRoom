@@ -1,0 +1,102 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Cinzel', serif; /* Changed to Cinzel */
+    background: url('escape_room_bg.jpg') no-repeat center center/cover;
+    color: #ffffff;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    background: rgba(0, 0, 0, 0.7);
+    padding: 40px;
+    border-radius: 15px;
+    text-align: center;
+    width: 90%;
+    max-width: 800px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.7);
+}
+
+/* Header Styles */
+.header h1 {
+    font-size: 3.5em;
+    margin-bottom: 0.5em;
+    color: #f5a623;
+    letter-spacing: 2px;
+    text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.7);
+}
+
+.header p {
+    font-size: 1.3em;
+    color: #eeeeee;
+    margin-bottom: 30px;
+}
+
+/* Game Start Button */
+.game-start {
+    margin: 40px 0;
+}
+
+.start-button {
+    padding: 15px 50px;
+    font-size: 1.6em;
+    background: linear-gradient(45deg, #f5a623, #ff4500);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 30px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease;
+}
+
+.start-button:hover {
+    background: linear-gradient(45deg, #ff4500, #ff6347);
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.7);
+    transform: scale(1.05);
+}
+
+/* Game Instructions */
+.game-info {
+    background-color: #292929;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.6);
+    margin-bottom: 30px;
+}
+
+.game-info h2 {
+    font-size: 2.2em;
+    color: #f5a623;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+}
+
+.game-info ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.game-info li {
+    font-size: 1.3em;
+    margin-bottom: 15px;
+    color: #eeeeee;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
+}
+
+/* Footer */
+footer {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    text-align: center;
+    font-size: 1em;
+    color: #f5a623;
+}
